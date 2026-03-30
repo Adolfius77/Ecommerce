@@ -15,7 +15,11 @@ public class Usuario  {
     private String telefono;
     private String rol;
 
+    public Usuario() {
+    }
 
+
+    
     public Usuario(String nombreCompleto, String correo, String contrasenia, String direccion, String telefono, String rol) {
         this.nombreCompleto = nombreCompleto;
         this.correo = correo;
