@@ -4,7 +4,7 @@
  */
 package controllers;
 
-import BOS.DetallePedidoBO;
+import BOS.DetallePedidooBO;
 import BOS.interfaces.IDetallePedidoBO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -29,7 +29,7 @@ public class DetallePedidoServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        this.detalleBO = new DetallePedidoBO();
+        this.detalleBO = new DetallePedidooBO();
     }
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
