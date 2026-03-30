@@ -75,11 +75,14 @@
                         </div>
 
                         <form class="formulario-login" action="${pageContext.request.contextPath}/UsuarioServlet" method="POST">
+
+                            <input type="hidden" name="accion" value="loginAdmin">
+
                             <div class="grupo-formulario">
                                 <label for="email">Correo electrónico</label>
                                 <div class="input-icono">
                                     <span class="icono">✉️</span>
-                                    <input type="email" id="email" placeholder="Ingrese su correo electrónico">
+                                    <input type="email" id="email" name="correo" placeholder="Ingrese su correo electrónico" required>
                                 </div>
                             </div>
 
@@ -87,7 +90,7 @@
                                 <label for="password">Contraseña</label>
                                 <div class="input-icono">
                                     <span class="icono">🔑</span>
-                                    <input type="password" id="password" placeholder="Ingrese su contraseña">
+                                    <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
                                 </div>
                             </div>
 
@@ -96,6 +99,7 @@
                             </div>
 
                             <button type="submit" class="btn-iniciar">Iniciar sesión</button>
+
                             <% if (request.getAttribute("error") != null) {%>
                             <p style="color:red; text-align: center; margin-top: 10px;">
                                 <%= request.getAttribute("error")%>

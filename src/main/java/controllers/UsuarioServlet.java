@@ -64,7 +64,7 @@ public class UsuarioServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String correo = request.getParameter("correo");
-        String password = request.getParameter("password");
+        String password = request.getParameter("contrasenia");
 
         try {
             Usuario adminLogueado = usuarioBO.iniciarSesion(correo, password);

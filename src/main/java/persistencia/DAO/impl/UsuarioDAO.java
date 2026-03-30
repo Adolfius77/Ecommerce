@@ -48,8 +48,9 @@ public class UsuarioDAO implements IUsuarioDAO{
     public Usuario autentificar(String correo, String password, String rol) {
         try {
             return col.find(Filters.and(
-                    Filters.eq("correo",correo),
-                    Filters.eq("password",password)
+                    Filters.eq("contrasenia",correo),
+                    Filters.eq("password",password),
+                    Filters.eq("rol", rol)
             )).first();
         } catch (MongoException e) {
             throw new MongoException("error al autentificar al: " + rol + e);
