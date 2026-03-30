@@ -4,7 +4,12 @@
     Author     : garfi
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="modelo.Producto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    List<Producto> productos = (List<Producto>) request.getAttribute("productos");
+%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -97,39 +102,25 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <% if (productos != null && !productos.isEmpty()) { 
+                                    for (Producto p : productos) { %>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Auriculares Inalámbricos con Cancelación de Ruido</td>
-                                    <td><a href="#" class="categoria-link">Electrónica</a></td>
-                                    <td>$299.99</td>
-                                    <td>45</td>
+                                    <td><%= p.getId().toString().substring(18) %>...</td>
+                                    <td><%= p.getNombre() %></td>
+                                    <td><a href="#" class="categoria-link"><%= p.getCategoria() %></a></td>
+                                    <td>$<%= String.format("%.2f", p.getPrecio()) %></td>
+                                    <td><%= p.getStock() %></td>
                                     <td class="acciones-catalogo">
-                                        <a href="editarProducto.jsp" class="btn-editar" title="Editar">✏️</a>
-                                        <a href="#" class="btn-eliminar" title="Eliminar">🗑️</a>
+                                        <a href="../ProductoServlet?accion=editar&id=<%= p.getId() %>" class="btn-editar" title="Editar">✏️</a>
+                                        <a href="../ProductoServlet?accion=eliminar&id=<%= p.getId() %>" class="btn-eliminar" title="Eliminar" onclick="return confirm('¿Estás seguro de eliminar este producto?')">🗑️</a>
                                     </td>
                                 </tr>
+                                <% } 
+                                } else { %>
                                 <tr>
-                                    <td>2</td>
-                                    <td>Silla Ergonómica de Oficina</td>
-                                    <td><a href="#" class="categoria-link">Muebles</a></td>
-                                    <td>$199.50</td>
-                                    <td>12</td>
-                                    <td class="acciones-catalogo">
-                                        <a href="editarProducto.jsp" class="btn-editar" title="Editar">✏️</a>
-                                        <a href="#" class="btn-eliminar" title="Eliminar">🗑️</a>
-                                    </td>
+                                    <td colspan="6" style="text-align: center; padding: 20px;">No hay productos registrados</td>
                                 </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Monitor UltraWide 34"</td>
-                                    <td><a href="#" class="categoria-link">Electrónica</a></td>
-                                    <td>$450.00</td>
-                                    <td>8</td>
-                                    <td class="acciones-catalogo">
-                                        <a href="editarProducto.jsp" class="btn-editar" title="Editar">✏️</a>
-                                        <a href="#" class="btn-eliminar" title="Eliminar">🗑️</a>
-                                    </td>
-                                </tr>
+                                <% } %>
                             </tbody>
                         </table>
                     </div>

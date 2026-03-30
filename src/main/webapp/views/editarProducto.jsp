@@ -4,7 +4,15 @@
     Author     : garfi
 --%>
 
+<%@page import="modelo.Producto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    Producto producto = (Producto) request.getAttribute("producto");
+    if (producto == null) {
+        response.sendRedirect("../ProductoServlet?accion=listar");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -84,47 +92,54 @@
                         <p class="subtitulo">Actualiza los detalles del producto seleccionado.</p>
                     </div>
 
-                    <form class="editar-producto-form">
+                    <form class="editar-producto-form" action="../ProductoServlet" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="accion" value="actualizar">
+                        <input type="hidden" name="id" value="<%= producto.getId() %>">
+                        <input type="hidden" name="imagenActual" value="<%= producto.getImagenProducto() != null ? producto.getImagenProducto() : "" %>">
+                        
                         <div class="imagen-editar-container">
-                            <div class="imagen-editar-placeholder">
-                                <div class="imagen-icono">🖼️</div>
-                                <span>Actualizar Imagen (Opcional)</span>
+                            <% if (producto.getImagenProducto() != null && !producto.getImagenProducto().isEmpty()) { %>
+                                <img src="../<%= producto.getImagenProducto() %>" alt="Producto" style="max-width: 200px; max-height: 200px; object-fit: cover; border-radius: 8px;">
+                            <% } else { %>
+                                <div class="imagen-editar-placeholder">
+                                    <div class="imagen-icono">🖼️</div>
+                                    <span>Sin imagen actual</span>
+                                </div>
+                            <% } %>
+                            <div class="campo-editar" style="margin-top: 10px;">
+                                <label for="imagenProducto">Actualizar Imagen (Opcional)</label>
+                                <input type="file" id="imagenProducto" name="imagenProducto" accept="image/*">
                             </div>
                         </div>
 
                         <div class="campo-editar">
                             <label for="nombre">Nombre del producto</label>
-                            <input type="text" id="nombre" value="Zapatillas Deportivas Modelo X">
+                            <input type="text" id="nombre" name="nombre" value="<%= producto.getNombre() %>" required>
                         </div>
 
                         <div class="campo-editar">
                             <label for="descripcion">Descripción</label>
-                            <textarea id="descripcion" rows="3">Zapatillas ligeras ideales para correr. Fabricadas con materiales reciclados y suela de alta tracción.</textarea>
+                            <textarea id="descripcion" name="descripcion" rows="3" required><%= producto.getDescripcion() %></textarea>
                         </div>
 
                         <div class="campos-fila-editar">
                             <div class="campo-editar">
                                 <label for="precio">Precio ($)</label>
-                                <input type="text" id="precio" value="89.99">
+                                <input type="number" step="0.01" id="precio" name="precio" value="<%= producto.getPrecio() %>" required>
                             </div>
                             <div class="campo-editar">
                                 <label for="stock">Stock (Unidades)</label>
-                                <input type="number" id="stock" value="45">
+                                <input type="number" id="stock" name="stock" value="<%= producto.getStock() %>" required>
                             </div>
                         </div>
 
                         <div class="campo-editar">
                             <label for="categoria">Categoría</label>
-                            <select id="categoria">
-                                <option value="calzado" selected>Calzado</option>
-                                <option value="electronica">Electrónica</option>
-                                <option value="muebles">Muebles</option>
-                                <option value="ropa">Ropa</option>
-                            </select>
+                            <input type="text" id="categoria" name="categoria" value="<%= producto.getCategoria() %>" required>
                         </div>
 
                         <div class="botones-editar">
-                            <a href="gestionCatalogo.html" class="btn-cancelar-editar">Cancelar</a>
+                            <a href="../ProductoServlet?accion=listar" class="btn-cancelar-editar">Cancelar</a>
                             <button type="submit" class="btn-actualizar">🔄 Actualizar</button>
                         </div>
                     </form>
