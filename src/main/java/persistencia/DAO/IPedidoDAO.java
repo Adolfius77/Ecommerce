@@ -14,5 +14,8 @@ import org.bson.types.ObjectId;
  */
 public interface IPedidoDAO {
     List<Pedido> listarTodos();
-    void actualizarEstado(ObjectId _id, String nuevoEstado);
+    Pedido obtenerPedidoPorId(ObjectId id);
+    void insertar(Pedido pedido);
+    void actualizarEstado(ObjectId id, String nuevoEstado);
+    void eliminar(ObjectId id);
 }
