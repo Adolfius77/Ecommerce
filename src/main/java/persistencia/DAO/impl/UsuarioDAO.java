@@ -48,8 +48,8 @@ public class UsuarioDAO implements IUsuarioDAO{
     public Usuario autentificar(String correo, String password, String rol) {
         try {
             return col.find(Filters.and(
-                    Filters.eq("contrasenia",correo),
-                    Filters.eq("password",password),
+                    Filters.eq("correo",correo),
+                    Filters.eq("contrasenia",password),
                     Filters.eq("rol", rol)
             )).first();
         } catch (MongoException e) {

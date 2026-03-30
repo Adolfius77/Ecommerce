@@ -74,7 +74,7 @@
                             <p>Por favor, ingrese sus credenciales para acceder a su cuenta.</p>
                         </div>
 
-                        <form class="formulario-login" action="${pageContext.request.contextPath}/UsuarioServlet" method="POST">
+                        <form class="formulario-login" action="../UsuarioServlet" method="POST">
 
                             <input type="hidden" name="accion" value="loginAdmin">
 
