@@ -15,11 +15,11 @@ import persistencia.DAO.impl.DetallePedidoDAO;
  *
  * @author garfi
  */
-public class detallePedidoBO implements IDetallePedidoBO {
+public class DetallePedidoBO implements IDetallePedidoBO {
 
     private final IDetallePedidoDAO detalleDAO;
 
-    public detallePedidoBO() {
+    public DetallePedidoBO() {
         this.detalleDAO = new DetallePedidoDAO();
     }
 
