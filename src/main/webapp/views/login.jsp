@@ -74,8 +74,7 @@
                             <p>Por favor, ingrese sus credenciales para acceder a su cuenta.</p>
                         </div>
 
-                        <form class="formulario-login">
-
+                        <form class="formulario-login" action="${pageContext.request.contextPath}/UsuarioServlet" method="POST">
                             <div class="grupo-formulario">
                                 <label for="email">Correo electrónico</label>
                                 <div class="input-icono">
@@ -97,6 +96,11 @@
                             </div>
 
                             <button type="submit" class="btn-iniciar">Iniciar sesión</button>
+                            <% if (request.getAttribute("error") != null) {%>
+                            <p style="color:red; text-align: center; margin-top: 10px;">
+                                <%= request.getAttribute("error")%>
+                            </p>
+                            <% }%>
                         </form>
 
                         <div class="pie-login">
