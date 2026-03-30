@@ -5,8 +5,11 @@
 package persistencia.DAO.impl;
 
 import Config.MongoClientProvider;
+import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import static com.mongodb.client.model.Filters.eq;
+import java.util.ArrayList;
+import java.util.List;
 import modelo.Resena;
 import org.bson.types.ObjectId;
 import persistencia.DAO.IResenaDAO;
@@ -36,6 +39,15 @@ public class ResenaDAO implements IResenaDAO{
     @Override
     public boolean eliminarResena(ObjectId id) {
         return coleccion.deleteOne(eq("_id", id)).getDeletedCount() > 0;
+    }
+
+    @Override
+    public List<Resena> obtenerTodasLasResenas() {
+        try {
+            return coleccion.find().into(new ArrayList<>());
+        } catch (MongoException e) {
+            throw new MongoException("error al obtener todas las resenas" + e);
+        }
     }
     
     

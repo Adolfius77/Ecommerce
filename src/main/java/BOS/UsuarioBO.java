@@ -4,6 +4,7 @@
  */
 package BOS;
 
+import BOS.interfaces.IUsuarioBO;
 import modelo.Usuario;
 import persistencia.DAO.IUsuarioDAO;
 import persistencia.DAO.impl.UsuarioDAO;
@@ -12,7 +13,7 @@ import persistencia.DAO.impl.UsuarioDAO;
  *
  * @author USER
  */
-public class UsuarioBO {
+public class UsuarioBO implements IUsuarioBO{
 
     private final IUsuarioDAO usuarioDAO;
 
@@ -20,6 +21,7 @@ public class UsuarioBO {
         this.usuarioDAO = new UsuarioDAO();
     }
 
+    @Override
     public Usuario iniciarSesion(String correo, String password) throws Exception {
         if (correo == null || correo.trim().isEmpty()) {
             throw new Exception("el correo es obligatorio");

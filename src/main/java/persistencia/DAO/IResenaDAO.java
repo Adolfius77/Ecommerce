@@ -4,6 +4,7 @@
  */
 package persistencia.DAO;
 
+import java.util.List;
 import modelo.Resena;
 import org.bson.types.ObjectId;
 
@@ -14,4 +15,5 @@ import org.bson.types.ObjectId;
 public interface IResenaDAO {
     ObjectId agregarResena(Resena resena);
     boolean eliminarResena(ObjectId id);
+    List<Resena>obtenerTodasLasResenas();
 }

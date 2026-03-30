@@ -4,8 +4,10 @@
  */
 package BOS;
 
+import BOS.interfaces.IResenaBO;
 import java.util.List;
 import modelo.Resena;
+import org.bson.types.ObjectId;
 import persistencia.DAO.IResenaDAO;
 import persistencia.DAO.impl.ResenaDAO;
 
@@ -13,17 +15,43 @@ import persistencia.DAO.impl.ResenaDAO;
  *
  * @author USER
  */
-public class ResenaBO {
-   private final IResenaDAO resenaDAO;
+public class ResenaBO implements IResenaBO{
+
+    private final IResenaDAO resenaDAO;
 
     public ResenaBO() {
- 
+
         this.resenaDAO = new ResenaDAO();
     }
-   public List<Resena> obtenerTodasLasResenas() throws Exception{
-       try {
-          
-       } catch (Exception e) {
-       }
-   }
+
+    @Override
+    public List<Resena> obtenerTodasLasResenas() throws Exception {
+        try {
+            List<Resena> lista = resenaDAO.obtenerTodasLasResenas();
+            if (lista == null | lista.isEmpty()) {
+                System.out.println("no hay resenas registradas actualmente");
+
+            }
+            return lista;
+        } catch (Exception e) {
+            throw new Exception("error al intentar obetener las resenas" + e.getMessage());
+        }
+    }
+
+    @Override
+    public void eliminarResena(String idResenaTexto) throws Exception {
+        if (idResenaTexto == null || idResenaTexto.trim().isEmpty()) {
+            throw new Exception("el id de la resena no puede estar vacio");
+        }
+        if (!ObjectId.isValid(idResenaTexto)) {
+            throw new Exception("el identificador de la resena no tiene un formato valido");
+        }
+        try {
+            ObjectId id = new ObjectId(idResenaTexto);
+            resenaDAO.eliminarResena(id);
+        } catch (Exception e) {
+            throw new Exception("ocurrio un error al intententar eliminar una resena");
+        }
+    }
+
 }
