@@ -13,7 +13,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Proyecto ECommerce</title>
-        <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles.css">
     </head>
 
     <body>
@@ -23,7 +23,7 @@
                 <span class="logo-text">Ecommerce</span>
             </div>
             <div class="header-right">
-                <a href="perfilUsuario.html" class="icon" title="Perfil"><img src="../imgs/perfil.png" alt="Perfil"></a>
+                <a href="perfilUsuario.jsp" class="icon" title="Perfil"><img src="../imgs/perfil.png" alt="Perfil"></a>
                 <a href="#cerrar-sesion" class="icon" title="Cerrar sesión"><img src="../imgs/salir.png"
                                                                                  alt="Cerrar sesión"></a>
             </div>
@@ -36,25 +36,25 @@
                         <li>
                             <div class="menu-item">
                                 <img src="../imgs/inicio.png" alt="Inicio" class="menu-icon">
-                                <a href="index.html">Inicio</a>
+                                <a href="index.jsp">Inicio</a>
                             </div>
                         </li>
                         <li>
                             <div class="menu-item">
                                 <img src="../imgs/catalogo.png" alt="Catálogo de productos" class="menu-icon">
-                                <a href="catalago.html">Catálogo de productos</a>
+                                <a href="catalogo.jsp">Catálogo de productos</a>
                             </div>
                         </li>
                         <li>
                             <div class="menu-item">
                                 <img src="../imgs/carrito.png" alt="Carrito de compras" class="menu-icon">
-                                <a href="carritoCompras.html">Carrito de compras</a>
+                                <a href="carritoCompras.jsp">Carrito de compras</a>
                             </div>
                         </li>
                         <li>
                             <div class="menu-item">
                                 <img src="../imgs/pedidos.png" alt="Gestión de pedidos" class="menu-icon">
-                                <a href="gestionPedidos.html">Gestión de pedidos</a>
+                                <a href="gestionPedidos.jsp">Gestión de pedidos</a>
                             </div>
                         </li>
                     </ul>
@@ -114,7 +114,7 @@
                         </form>
 
                         <div class="pie-login">
-                            <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+                            <p>¿Ya tienes una cuenta? <a href="login.jsp">Inicia sesión aquí</a></p>
                         </div>
 
                     </div>

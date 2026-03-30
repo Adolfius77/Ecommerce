@@ -13,7 +13,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Panel de Administrador</title>
-        <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles.css">
     </head>
 
     <body>
@@ -23,7 +23,7 @@
                 <span class="logo-text">Ecommerce</span>
             </div>
             <div class="header-right">
-                <a href="perfilUsuario.html" class="icon" title="Perfil"><img src="../imgs/perfil.png" alt="Perfil"></a>
+                <a href="perfilUsuario.jsp" class="icon" title="Perfil"><img src="../imgs/perfil.png" alt="Perfil"></a>
                 <a href="#cerrar-sesion" class="icon" title="Cerrar sesión"><img src="../imgs/salir.png"
                                                                                  alt="Cerrar sesión"></a>
             </div>
@@ -36,25 +36,25 @@
                         <li>
                             <div class="menu-item">
                                 <img src="../imgs/catalogo.png" alt="Gestión de catálogo" class="menu-icon">
-                                <a href="#catalogo">Gestión de catálogo</a>
+                                <a href="gestionCatalogo.jsp">Gestión de catálogo</a>
                             </div>
                         </li>
                         <li>
                             <div class="menu-item">
                                 <img src="../imgs/pedidos.png" alt="Gestión de pedidos" class="menu-icon">
-                                <a href="#pedidos">Gestión de pedidos</a>
+                                <a href="gestionPedidos.jsp">Gestión de pedidos</a>
                             </div>
                         </li>
                         <li>
                             <div class="menu-item">
                                 <img src="../imgs/reseña.png" alt="Gestión de reseñas" class="menu-icon">
-                                <a href="#resenas">Gestión de reseñas</a>
+                                <a href="resenasAdmin.jsp">Gestión de reseñas</a>
                             </div>
                         </li>
                         <li>
                             <div class="menu-item">
                                 <img src="../imgs/admin.png" alt="Administrador" class="menu-icon">
-                                <a href="indexAdmin.html">Administrador</a>
+                                <a href="indexAdmin.jsp">Administrador</a>
                             </div>
                         </li>
                     </ul>
@@ -70,28 +70,28 @@
                         <img src="../imgs/usuariosCirculo.png" alt="Gestionar Usuarios" class="card-icon">
                         <h3>Gestionar Usuarios (Admin)</h3>
                         <p>Ver, editar o eliminar cuentas de usuario.</p>
-                        <a href="#">Ir a Usuarios →</a>
+                        <a href="gestionUsuariosAdmin.jsp">Ir a Usuarios →</a>
                     </div>
 
                     <div class="admin-card">
                         <img src="../imgs/catalogoCirculo.png" alt="Catálogo" class="card-icon">
                         <h3>Catálogo (Admin)</h3>
                         <p>Añadir, actualizar o eliminar productos.</p>
-                        <a href="#">Ir a Productos →</a>
+                        <a href="gestionCatalogo.jsp">Ir a Productos →</a>
                     </div>
 
                     <div class="admin-card">
                         <img src="../imgs/ticketCirculo.png" alt="Pedidos" class="card-icon">
                         <h3>Pedidos (Admin)</h3>
                         <p>Rastrear y actualizar pedidos de clientes.</p>
-                        <a href="gestionPedidos.html">Ir a Pedidos →</a>
+                        <a href="gestionPedidos.jsp">Ir a Pedidos →</a>
                     </div>
 
                     <div class="admin-card">
                         <img src="../imgs/reseñaCirculo.png" alt="Reseñas" class="card-icon">
                         <h3>Reseñas (Admin)</h3>
                         <p>Moderar reseñas de productos y valoraciones.</p>
-                        <a href="#">Ir a Reseñas →</a>
+                        <a href="resenasAdmin.jsp">Ir a Reseñas →</a>
                     </div>
                 </div>
             </main>

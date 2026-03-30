@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles del Producto</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" type="text/css" href="../assets/styles.css">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
             <span class="logo-text">Ecommerce</span>
         </div>
         <div class="header-right">
-            <a href="perfilUsuario.html" class="icon" title="Perfil"><img src="../imgs/perfil.png" alt="Perfil"></a>
+            <a href="perfilUsuario.jsp" class="icon" title="Perfil"><img src="../imgs/perfil.png" alt="Perfil"></a>
             <a href="#cerrar-sesion" class="icon" title="Cerrar sesión"><img src="../imgs/salir.png" alt="Cerrar sesión"></a>
         </div>
     </header>
@@ -35,25 +35,25 @@
                     <li>
                         <div class="menu-item">
                             <img src="../imgs/inicio.png" alt="Inicio" class="menu-icon">
-                            <a href="index.html">Inicio</a>
+                            <a href="index.jsp">Inicio</a>
                         </div>
                     </li>
                     <li>
                         <div class="menu-item">
                             <img src="../imgs/catalogo.png" alt="Catálogo de productos" class="menu-icon">
-                            <a href="catalago.html">Catálogo de productos</a>
+                            <a href="catalogo.jsp">Catálogo de productos</a>
                         </div>
                     </li>
                     <li>
                         <div class="menu-item">
                             <img src="../imgs/carrito.png" alt="Carrito de compras" class="menu-icon">
-                            <a href="carritoCompras.html">Carrito de compras</a>
+                            <a href="carritoCompras.jsp">Carrito de compras</a>
                         </div>
                     </li>
                     <li>
                         <div class="menu-item">
                             <img src="../imgs/pedidos.png" alt="Gestión de pedidos" class="menu-icon">
-                            <a href="gestionPedidos.html">Gestión de pedidos</a>
+                            <a href="gestionPedidos.jsp">Gestión de pedidos</a>
                         </div>
                     </li>
                 </ul>
@@ -63,7 +63,7 @@
         <main class="contenido fondo-claro">
             <div class="detalles-wrapper">
                 
-                <a href="catalago.html" class="btn-regresar-enlace">← Volver al catálogo</a>
+                <a href="catalogo.jsp" class="btn-regresar-enlace">← Volver al catálogo</a>
 
                 <div class="producto-principal-card">
                     <div class="producto-galeria">
@@ -100,7 +100,7 @@
                                 </div>
                             </div>
                             
-                            <button class="btn-agregar-grande" onclick="window.location.href='carritoCompras.html'">
+                            <button class="btn-agregar-grande" onclick="window.location.href='carritoCompras.jsp'">
                                 🛒 Agregar al carrito
                             </button>
                         </div>
