@@ -22,19 +22,34 @@ public class UsuarioBO implements IUsuarioBO{
     }
     public void crearAdmin(){
         try {
-            Usuario admin = usuarioDAO.autentificar("admin@gmail.com", "mitens", "admin");
+            // Primero intenta buscar con el rol correcto
+            Usuario admin = usuarioDAO.autentificar("admin@gmail.com", "mitens", "Admin");
+            
             if(admin == null){
-                Usuario nuevoAdmin = new Usuario();
-                nuevoAdmin.setNombreCompleto("admnistrador principal");
-                nuevoAdmin.setCorreo("admin@gmail.com");
-                nuevoAdmin.setContrasenia("mitens");
-                nuevoAdmin.setRol("admin");
+                // Si no existe con "Admin", busca con el rol incorrecto "admin"
+                Usuario adminViejo = usuarioDAO.autentificar("admin@gmail.com", "mitens", "admin");
                 
-                usuarioDAO.registrarUsuario(nuevoAdmin, "admin");
-                System.out.println("admin creado correctamente");
+                if(adminViejo != null){
+                    // Actualizar el rol del admin existente
+                    adminViejo.setRol("Admin");
+                    usuarioDAO.actualizar(adminViejo);
+                    System.out.println("admin actualizado correctamente con el rol correcto");
+                } else {
+                    // Si no existe, crear uno nuevo
+                    Usuario nuevoAdmin = new Usuario();
+                    nuevoAdmin.setNombreCompleto("admnistrador principal");
+                    nuevoAdmin.setCorreo("admin@gmail.com");
+                    nuevoAdmin.setContrasenia("mitens");
+                    nuevoAdmin.setRol("Admin");
+                    
+                    usuarioDAO.registrarUsuario(nuevoAdmin, "Admin");
+                    System.out.println("admin creado correctamente");
+                }
+            } else {
+                System.out.println("admin ya existe con el rol correcto");
             }
         } catch (Exception e) {
-            System.out.println("error al crear al admin"+  e.getMessage());
+            System.out.println("error al crear/actualizar al admin: " + e.getMessage());
         }
     }
     @Override
