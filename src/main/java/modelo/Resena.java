@@ -4,6 +4,7 @@ import org.bson.types.ObjectId;
 import java.util.Date;
 
 public class Resena {
+
     private ObjectId id;
     private ObjectId productoId;
     private String nombreUsuario;
@@ -22,21 +23,51 @@ public class Resena {
         this.fecha = new Date();
     }
 
-    public ObjectId getId() { return id; }
-    public void setId(ObjectId id) { this.id = id; }
+    public ObjectId getId() {
+        return id;
+    }
 
-    public ObjectId getProductoId() { return productoId; }
-    public void setProductoId(ObjectId productoId) { this.productoId = productoId; }
+    public void setId(ObjectId id) {
+        this.id = id;
+    }
 
-    public String getNombreUsuario() { return nombreUsuario; }
-    public void setNombreUsuario(String nombreUsuario) { this.nombreUsuario = nombreUsuario; }
+    public ObjectId getProductoId() {
+        return productoId;
+    }
 
-    public double getCalificacion() { return calificacion; }
-    public void setCalificacion(double calificacion) { this.calificacion = calificacion; }
+    public void setProductoId(ObjectId productoId) {
+        this.productoId = productoId;
+    }
 
-    public String getComentario() { return comentario; }
-    public void setComentario(String comentario) { this.comentario = comentario; }
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
 
-    public Date getFecha() { return fecha; }
-    public void setFecha(Date fecha) { this.fecha = fecha; }
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public double getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(double calificacion) {
+        this.calificacion = calificacion;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
 }

@@ -1,8 +1,12 @@
 package modelo;
 
-import org.bson.types.ObjectId;
 
-public class Usuario {
+import org.bson.types.ObjectId;
+import persistencia.DAO.IUsuarioDAO;
+import persistencia.DAO.impl.UsuarioDAO;
+
+public class Usuario  {
+
     private ObjectId id;
     private String nombreCompleto;
     private String correo;
@@ -11,7 +15,6 @@ public class Usuario {
     private String telefono;
     private String rol;
 
-    public Usuario() {}
 
     public Usuario(String nombreCompleto, String correo, String contrasenia, String direccion, String telefono, String rol) {
         this.nombreCompleto = nombreCompleto;
@@ -20,8 +23,11 @@ public class Usuario {
         this.direccion = direccion;
         this.telefono = telefono;
         this.rol = rol;
+       
+
     }
 
+    //geters y setters
     public ObjectId getId() {
         return id;
     }
@@ -77,4 +83,5 @@ public class Usuario {
     public void setRol(String rol) {
         this.rol = rol;
     }
+
 }
