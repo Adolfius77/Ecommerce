@@ -36,7 +36,7 @@
                         <li>
                             <div class="menu-item">
                                 <img src="../imgs/catalogo.png" alt="Gestión de catálogo" class="menu-icon">
-                                <a href="gestionCatalogo.jsp">Gestión de catálogo</a>
+                                <a href="../ProductoServlet?accion=listar">Gestión de catálogo</a>
                             </div>
                         </li>
                         <li>
@@ -48,7 +48,7 @@
                         <li>
                             <div class="menu-item">
                                 <img src="../imgs/reseña.png" alt="Gestión de reseñas" class="menu-icon">
-                                <a href="resenasAdmin.jsp">Gestión de reseñas</a>
+                                <a href="../ResenaServlet">Gestión de reseñas</a>
                             </div>
                         </li>
                         <li>
@@ -77,7 +77,7 @@
                         <img src="../imgs/catalogoCirculo.png" alt="Catálogo" class="card-icon">
                         <h3>Catálogo (Admin)</h3>
                         <p>Añadir, actualizar o eliminar productos.</p>
-                        <a href="gestionCatalogo.jsp">Ir a Productos →</a>
+                        <a href="../ProductoServlet?accion=listar">Ir a Productos →</a>
                     </div>
 
                     <div class="admin-card">
@@ -91,7 +91,7 @@
                         <img src="../imgs/reseñaCirculo.png" alt="Reseñas" class="card-icon">
                         <h3>Reseñas (Admin)</h3>
                         <p>Moderar reseñas de productos y valoraciones.</p>
-                        <a href="resenasAdmin.jsp">Ir a Reseñas →</a>
+                        <a href="../ResenaServlet">Ir a Reseñas →</a>
                     </div>
                 </div>
             </main>

@@ -4,30 +4,37 @@
     Author     : garfi
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="modelo.Pedido"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    List<Pedido> listaPedidos = (List<Pedido>) request.getAttribute("listaPedidos");
+    SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pedidos Admin - Ecommerce</title>
-        <link rel="stylesheet" type="text/css" href="../assets/stylesAdmin.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/stylesAdmin.css">
     </head>
     <body>
         <header class="barra-superior">
             <div class="header-left">
                 <a href="#" class="logo-link">
-                    <img src="../imgs/logo.png" alt="Logo" class="logo-img">
+                    <img src="${pageContext.request.contextPath}/imgs/logo.png" alt="Logo" class="logo-img">
                     <span class="logo-text">Ecommerce</span>
                 </a>
             </div>
             <div class="header-right">
                 <div class="icons">
                     <a href="perfilUsuario.jsp" class="icon">
-                        <img src="../imgs/perfil.png" alt="Perfil">
+                        <img src="${pageContext.request.contextPath}/imgs/perfil.png" alt="Perfil">
                     </a>
                     <a href="#" class="icon">
-                        <img src="../imgs/salir.png" alt="Salir">
+                        <img src="${pageContext.request.contextPath}/imgs/salir.png" alt="Salir">
                     </a>
                 </div>
             </div>
@@ -39,37 +46,37 @@
                     <ul>
                         <li>
                             <a href="indexAdmin.jsp" class="menu-item">
-                                <img src="../imgs/inicio.png" alt="Inicio" class="menu-icon">
+                                <img src="${pageContext.request.contextPath}/imgs/inicio.png" alt="Inicio" class="menu-icon">
                                 <span>Inicio</span>
                             </a>
                         </li>
                         <li>
                             <a href="gestionUsuariosAdmin.jsp" class="menu-item">
-                                <img src="../imgs/perfil.png" alt="Usuarios" class="menu-icon">
+                                <img src="${pageContext.request.contextPath}/imgs/perfil.png" alt="Usuarios" class="menu-icon">
                                 <span>Gestión de usuarios</span>
                             </a>
                         </li>
                         <li>
-                            <a href="gestionCatalogo.jsp" class="menu-item">
-                                <img src="../imgs/catalogo.png" alt="Catálogo" class="menu-icon">
+                            <a href="../ProductoServlet?accion=listar" class="menu-item">
+                                <img src="${pageContext.request.contextPath}/imgs/catalogo.png" alt="Catálogo" class="menu-icon">
                                 <span>Gestión de catálogo</span>
                             </a>
                         </li>
                         <li>
-                            <a href="pagPedidosAdmin.jsp" class="menu-item active">
-                                <img src="../imgs/pedidos.png" alt="Pedidos" class="menu-icon">
+                            <a href="../PedidoServlet" class="menu-item active">
+                                <img src="${pageContext.request.contextPath}/imgs/pedidos.png" alt="Pedidos" class="menu-icon">
                                 <span>Gestión de pedidos</span>
                             </a>
                         </li>
                         <li>
-                            <a href="resenasAdmin.jsp" class="menu-item">
-                                <img src="../imgs/ticket.png" alt="Reseñas" class="menu-icon">
+                            <a href="../ResenaServlet" class="menu-item">
+                                <img src="${pageContext.request.contextPath}/imgs/ticket.png" alt="Reseñas" class="menu-icon">
                                 <span>Gestion de reseñas</span>
                             </a>
                         </li>
                         <li>
                             <a href="crearProducto.jsp" class="menu-item">
-                                <img src="../imgs/perfil.png" alt="Admin" class="menu-icon">
+                                <img src="${pageContext.request.contextPath}/imgs/perfil.png" alt="Admin" class="menu-icon">
                                 <span>Administrador</span>
                             </a>
                         </li>
@@ -97,24 +104,42 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <% if (listaPedidos != null && !listaPedidos.isEmpty()) { 
+                                    for (Pedido pedido : listaPedidos) { 
+                                        String estadoClass = "";
+                                        String estadoTexto = pedido.getEstado();
+                                        if ("Pendiente".equalsIgnoreCase(estadoTexto)) {
+                                            estadoClass = "estado-pendiente";
+                                        } else if ("Enviado".equalsIgnoreCase(estadoTexto)) {
+                                            estadoClass = "estado-enviado";
+                                        } else if ("Entregado".equalsIgnoreCase(estadoTexto)) {
+                                            estadoClass = "estado-entregado";
+                                        }
+                                %>
                                 <tr>
-                                    <td>1001</td>
-                                    <td>cliente1@email.com</td>
-                                    <td><span class="estado-pedido estado-pendiente">Pendiente</span></td>
-                                    <td><a href="#" class="btn-actualizar">Actualizar</a></td>
+                                    <td><%= pedido.getId().toString().substring(18) %>...</td>
+                                    <td><%= pedido.getNombreCliente() %></td>
+                                    <td><span class="estado-pedido <%= estadoClass %>"><%= estadoTexto %></span></td>
+                                    <td>
+                                        <form action="../PedidoServlet" method="POST" style="display: inline;">
+                                            <input type="hidden" name="accion" value="actualizarEstado">
+                                            <input type="hidden" name="id" value="<%= pedido.getId() %>">
+                                            <select name="nuevoEstado" class="select-estado" onchange="this.form.submit()">
+                                                <option value="">-- Cambiar estado --</option>
+                                                <option value="Pendiente" <%= "Pendiente".equals(estadoTexto) ? "selected" : "" %>>Pendiente</option>
+                                                <option value="Enviado" <%= "Enviado".equals(estadoTexto) ? "selected" : "" %>>Enviado</option>
+                                                <option value="Entregado" <%= "Entregado".equals(estadoTexto) ? "selected" : "" %>>Entregado</option>
+                                                <option value="Cancelado" <%= "Cancelado".equals(estadoTexto) ? "selected" : "" %>>Cancelado</option>
+                                            </select>
+                                        </form>
+                                    </td>
                                 </tr>
+                                <% } 
+                                } else { %>
                                 <tr>
-                                    <td>1002</td>
-                                    <td>cliente2@email.com</td>
-                                    <td><span class="estado-pedido estado-enviado">Enviado</span></td>
-                                    <td><a href="#" class="btn-actualizar">Actualizar</a></td>
+                                    <td colspan="4" style="text-align: center; padding: 20px;">No hay pedidos registrados</td>
                                 </tr>
-                                <tr>
-                                    <td>1003</td>
-                                    <td>cliente3@email.com</td>
-                                    <td><span class="estado-pedido estado-entregado">Entregado</span></td>
-                                    <td><a href="#" class="btn-actualizar">Actualizar</a></td>
-                                </tr>
+                                <% } %>
                             </tbody>
                         </table>
                     </div>

@@ -16,23 +16,23 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Gestión de Catálogo - Ecommerce</title>
-        <link rel="stylesheet" type="text/css" href="../assets/stylesAdmin.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/stylesAdmin.css">
     </head>
     <body>
         <header class="barra-superior">
             <div class="header-left">
                 <a href="#" class="logo-link">
-                    <img src="../imgs/logo.png" alt="Logo" class="logo-img">
+                    <img src="${pageContext.request.contextPath}/imgs/logo.png" alt="Logo" class="logo-img">
                     <span class="logo-text">Ecommerce</span>
                 </a>
             </div>
             <div class="header-right">
                 <div class="icons">
                     <a href="perfilUsuario.jsp" class="icon">
-                        <img src="../imgs/perfil.png" alt="Perfil">
+                        <img src="${pageContext.request.contextPath}/imgs/perfil.png" alt="Perfil">
                     </a>
                     <a href="#" class="icon">
-                        <img src="../imgs/salir.png" alt="Salir">
+                        <img src="${pageContext.request.contextPath}/imgs/salir.png" alt="Salir">
                     </a>
                 </div>
             </div>
@@ -44,37 +44,37 @@
                     <ul>
                         <li>
                             <a href="indexAdmin.jsp" class="menu-item">
-                                <img src="../imgs/inicio.png" alt="Inicio" class="menu-icon">
+                                <img src="${pageContext.request.contextPath}/imgs/inicio.png" alt="Inicio" class="menu-icon">
                                 <span>Inicio</span>
                             </a>
                         </li>
                         <li>
                             <a href="gestionUsuariosAdmin.jsp" class="menu-item">
-                                <img src="../imgs/perfil.png" alt="Usuarios" class="menu-icon">
+                                <img src="${pageContext.request.contextPath}/imgs/perfil.png" alt="Usuarios" class="menu-icon">
                                 <span>Gestión de usuarios</span>
                             </a>
                         </li>
                         <li>
-                            <a href="gestionCatalogo.jsp" class="menu-item active">
-                                <img src="../imgs/catalogo.png" alt="Catálogo" class="menu-icon">
+                            <a href="../ProductoServlet?accion=listar" class="menu-item active">
+                                <img src="${pageContext.request.contextPath}/imgs/catalogo.png" alt="Catálogo" class="menu-icon">
                                 <span>Gestión de catálogo</span>
                             </a>
                         </li>
                         <li>
-                            <a href="pagPedidosAdmin.jsp" class="menu-item">
-                                <img src="../imgs/pedidos.png" alt="Pedidos" class="menu-icon">
+                            <a href="../PedidoServlet" class="menu-item">
+                                <img src="${pageContext.request.contextPath}/imgs/pedidos.png" alt="Pedidos" class="menu-icon">
                                 <span>Gestión de pedidos</span>
                             </a>
                         </li>
                         <li>
-                            <a href="resenasAdmin.jsp" class="menu-item">
-                                <img src="../imgs/ticket.png" alt="Reseñas" class="menu-icon">
+                            <a href="../ResenaServlet" class="menu-item">
+                                <img src="${pageContext.request.contextPath}/imgs/ticket.png" alt="Reseñas" class="menu-icon">
                                 <span>Gestion de reseñas</span>
                             </a>
                         </li>
                         <li>
                             <a href="crearProducto.jsp" class="menu-item">
-                                <img src="../imgs/perfil.png" alt="Admin" class="menu-icon">
+                                <img src="${pageContext.request.contextPath}/imgs/perfil.png" alt="Admin" class="menu-icon">
                                 <span>Administrador</span>
                             </a>
                         </li>

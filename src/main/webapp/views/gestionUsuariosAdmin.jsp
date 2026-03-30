@@ -50,19 +50,19 @@
                             </a>
                         </li>
                         <li>
-                            <a href="gestionCatalogo.jsp" class="menu-item">
+                            <a href="../ProductoServlet?accion=listar" class="menu-item">
                                 <img src="../imgs/catalogo.png" alt="Catálogo" class="menu-icon">
                                 <span>Gestión de catálogo</span>
                             </a>
                         </li>
                         <li>
-                            <a href="pagPedidosAdmin.jsp" class="menu-item">
+                            <a href="../PedidoServlet" class="menu-item">
                                 <img src="../imgs/pedidos.png" alt="Pedidos" class="menu-icon">
                                 <span>Gestión de pedidos</span>
                             </a>
                         </li>
                         <li>
-                            <a href="resenasAdmin.jsp" class="menu-item">
+                            <a href="../ResenaServlet" class="menu-item">
                                 <img src="../imgs/ticket.png" alt="Reseñas" class="menu-icon">
                                 <span>Gestion de reseñas</span>
                             </a>
