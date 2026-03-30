@@ -38,7 +38,7 @@ public class ProductoBO implements IProductoBO {
     }
 
     @Override
-    public void eliminarProducto(Producto producto) {
-        productoDAO.eliminar(producto.getId());
+    public void eliminarProducto(ObjectId id) {
+        productoDAO.eliminar(id);
     }
 }

@@ -9,5 +9,5 @@ public interface IProductoBO {
     Producto buscarProductoPorId(ObjectId id);
     void registrarProducto(Producto producto);
     void actualizarProducto(Producto producto);
-    void eliminarProducto(Producto producto);
+    void eliminarProducto(ObjectId id);
 }
