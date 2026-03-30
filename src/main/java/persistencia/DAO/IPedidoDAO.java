@@ -1,0 +1,18 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package persistencia.DAO;
+
+import java.util.List;
+import modelo.Pedido;
+import org.bson.types.ObjectId;
+
+/**
+ *
+ * @author USER
+ */
+public interface IPedidoDAO {
+    List<Pedido> listarTodos();
+    void actualizarEstado(ObjectId _id, String nuevoEstado);
+}
