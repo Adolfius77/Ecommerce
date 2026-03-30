@@ -11,7 +11,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Editar Producto - Ecommerce</title>
-        <link rel="stylesheet" href="../stylesAdmin.css">
+        <link rel="stylesheet" type="text/css" href="../assets/stylesAdmin.css">
     </head>
     <body>
         <header class="barra-superior">
@@ -23,7 +23,7 @@
             </div>
             <div class="header-right">
                 <div class="icons">
-                    <a href="perfilUsuario.html" class="icon">
+                    <a href="perfilUsuario.jsp" class="icon">
                         <img src="../imgs/perfil.png" alt="Perfil">
                     </a>
                     <a href="#" class="icon">
@@ -38,37 +38,37 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="indexAdmin.html" class="menu-item">
+                            <a href="indexAdmin.jsp" class="menu-item">
                                 <img src="../imgs/inicio.png" alt="Inicio" class="menu-icon">
                                 <span>Inicio</span>
                             </a>
                         </li>
                         <li>
-                            <a href="gestionUsuariosAdmin.html" class="menu-item">
+                            <a href="gestionUsuariosAdmin.jsp" class="menu-item">
                                 <img src="../imgs/perfil.png" alt="Usuarios" class="menu-icon">
                                 <span>Gestión de usuarios</span>
                             </a>
                         </li>
                         <li>
-                            <a href="gestionCatalogo.html" class="menu-item">
+                            <a href="gestionCatalogo.jsp" class="menu-item">
                                 <img src="../imgs/catalogo.png" alt="Catálogo" class="menu-icon">
                                 <span>Gestión de catálogo</span>
                             </a>
                         </li>
                         <li>
-                            <a href="pagPedidosAdmin.html" class="menu-item">
+                            <a href="pagPedidosAdmin.jsp" class="menu-item">
                                 <img src="../imgs/pedidos.png" alt="Pedidos" class="menu-icon">
                                 <span>Gestión de pedidos</span>
                             </a>
                         </li>
                         <li>
-                            <a href="resenasAdmin.html" class="menu-item">
+                            <a href="resenasAdmin.jsp" class="menu-item">
                                 <img src="../imgs/ticket.png" alt="Reseñas" class="menu-icon">
                                 <span>Gestion de reseñas</span>
                             </a>
                         </li>
                         <li>
-                            <a href="crearProducto.html" class="menu-item active">
+                            <a href="crearProducto.jsp" class="menu-item active">
                                 <img src="../imgs/perfil.png" alt="Admin" class="menu-icon">
                                 <span>Administrador</span>
                             </a>
