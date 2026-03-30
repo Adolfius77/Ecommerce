@@ -1,6 +1,6 @@
 <%-- 
-    Document   : pagPedidosAdmin
-    Created on : 29/03/2026, 5:43:24 p. m.
+    Document   : gestionUsuariosAdmin
+    Created on : 29/03/2026, 5:40:32 p. m.
     Author     : garfi
 --%>
 
@@ -10,8 +10,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pedidos Admin - Ecommerce</title>
-        <link rel="stylesheet" href="../stylesAdmin.css">
+        <title>Gestión de Usuarios - Ecommerce</title>
+        <link rel="stylesheet" type="text/css" href="../assets/stylesAdmin.css">
     </head>
     <body>
         <header class="barra-superior">
@@ -23,7 +23,7 @@
             </div>
             <div class="header-right">
                 <div class="icons">
-                    <a href="perfilUsuario.html" class="icon">
+                    <a href="perfilUsuario.jsp" class="icon">
                         <img src="../imgs/perfil.png" alt="Perfil">
                     </a>
                     <a href="#" class="icon">
@@ -38,37 +38,37 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="indexAdmin.html" class="menu-item">
+                            <a href="indexAdmin.jsp" class="menu-item">
                                 <img src="../imgs/inicio.png" alt="Inicio" class="menu-icon">
                                 <span>Inicio</span>
                             </a>
                         </li>
                         <li>
-                            <a href="gestionUsuariosAdmin.html" class="menu-item">
+                            <a href="gestionUsuariosAdmin.jsp" class="menu-item active">
                                 <img src="../imgs/perfil.png" alt="Usuarios" class="menu-icon">
                                 <span>Gestión de usuarios</span>
                             </a>
                         </li>
                         <li>
-                            <a href="gestionCatalogo.html" class="menu-item">
+                            <a href="gestionCatalogo.jsp" class="menu-item">
                                 <img src="../imgs/catalogo.png" alt="Catálogo" class="menu-icon">
                                 <span>Gestión de catálogo</span>
                             </a>
                         </li>
                         <li>
-                            <a href="pagPedidosAdmin.html" class="menu-item active">
+                            <a href="pagPedidosAdmin.jsp" class="menu-item">
                                 <img src="../imgs/pedidos.png" alt="Pedidos" class="menu-icon">
                                 <span>Gestión de pedidos</span>
                             </a>
                         </li>
                         <li>
-                            <a href="resenasAdmin.html" class="menu-item">
+                            <a href="resenasAdmin.jsp" class="menu-item">
                                 <img src="../imgs/ticket.png" alt="Reseñas" class="menu-icon">
                                 <span>Gestion de reseñas</span>
                             </a>
                         </li>
                         <li>
-                            <a href="crearProducto.html" class="menu-item">
+                            <a href="crearProducto.jsp" class="menu-item">
                                 <img src="../imgs/perfil.png" alt="Admin" class="menu-icon">
                                 <span>Administrador</span>
                             </a>
@@ -78,53 +78,60 @@
             </aside>
 
             <main class="contenido">
-                <div class="pedidos-wrapper">
-                    <div class="page-header">
-                        <h1>Pedidos (Admin)</h1>
-                        <div class="search-container">
-                            <input type="text" class="search-input" placeholder="Buscar pedidos...">
-                        </div>
+                <div class="usuarios-wrapper">
+                    <div class="usuarios-header">
+                        <h1>Gestión de Usuarios</h1>
+                        <p class="subtitulo">Ver, editar o eliminar cuentas de usuario.</p>
                     </div>
 
-                    <div class="tabla-pedidos-container">
-                        <table class="tabla-pedidos">
+                    <div class="tabla-usuarios-container">
+                        <table class="tabla-usuarios">
                             <thead>
                                 <tr>
-                                    <th>Número de pedido</th>
-                                    <th>Correo del cliente</th>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Rol</th>
                                     <th>Estado</th>
-                                    <th>Acción</th>
+                                    <th>Fecha de Registro</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>1001</td>
-                                    <td>cliente1@email.com</td>
-                                    <td><span class="estado-pedido estado-pendiente">Pendiente</span></td>
-                                    <td><a href="#" class="btn-actualizar">Actualizar</a></td>
+                                    <td>Juan Pérez</td>
+                                    <td>juan@example.com</td>
+                                    <td>Cliente</td>
+                                    <td><span class="estado-usuario estado-activo">Activo</span></td>
+                                    <td>15/10/2023</td>
+                                    <td class="acciones-celda">
+                                        <a href="#" class="btn-cambiar-estado">Cambiar Estado</a>
+                                        <a href="#" class="btn-eliminar-usuario">Eliminar</a>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>1002</td>
-                                    <td>cliente2@email.com</td>
-                                    <td><span class="estado-pedido estado-enviado">Enviado</span></td>
-                                    <td><a href="#" class="btn-actualizar">Actualizar</a></td>
+                                    <td>María García</td>
+                                    <td>maria@example.com</td>
+                                    <td>Admin</td>
+                                    <td><span class="estado-usuario estado-activo">Activo</span></td>
+                                    <td>12/10/2023</td>
+                                    <td class="acciones-celda">
+                                        <a href="#" class="btn-cambiar-estado">Cambiar Estado</a>
+                                        <a href="#" class="btn-eliminar-usuario">Eliminar</a>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>1003</td>
-                                    <td>cliente3@email.com</td>
-                                    <td><span class="estado-pedido estado-entregado">Entregado</span></td>
-                                    <td><a href="#" class="btn-actualizar">Actualizar</a></td>
+                                    <td>Carlos López</td>
+                                    <td>carlos@example.com</td>
+                                    <td>Cliente</td>
+                                    <td><span class="estado-usuario estado-inactivo">Inactivo</span></td>
+                                    <td>10/10/2023</td>
+                                    <td class="acciones-celda">
+                                        <a href="#" class="btn-cambiar-estado">Cambiar Estado</a>
+                                        <a href="#" class="btn-eliminar-usuario">Eliminar</a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-
-                    <div class="pagination-container">
-                        <span class="pagination-info">Mostrando 1 a 3 de 15 pedidos</span>
-                        <div class="pagination-buttons">
-                            <button class="btn-pagination" disabled>Anterior</button>
-                            <button class="btn-pagination">Siguiente</button>
-                        </div>
                     </div>
                 </div>
             </main>
