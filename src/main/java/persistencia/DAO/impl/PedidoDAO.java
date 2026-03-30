@@ -6,15 +6,16 @@ package persistencia.DAO.impl;
 
 import Config.MongoClientProvider;
 import com.mongodb.MongoException;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Updates;
-import com.mongodb.client.result.UpdateResult;
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Updates.set;
 import java.util.ArrayList;
 import java.util.List;
+import com.mongodb.client.MongoCollection;
 import modelo.Pedido;
 import org.bson.types.ObjectId;
 import persistencia.DAO.IPedidoDAO;
+
+import static com.mongodb.client.model.Filters.eq;
 
 /**
  *
@@ -30,23 +31,27 @@ public class PedidoDAO implements IPedidoDAO {
 
     @Override
     public List<Pedido> listarTodos() {
-        try {
-             return col.find().into(new ArrayList<>());
-        } catch (MongoException e) {
-            throw new MongoException("error al listar todos los pedidos" + e);
-        }
+        return col.find().into(new ArrayList<>());
     }
 
     @Override
-    public void actualizarEstado(ObjectId _id, String nuevoEstado) {
-        try {
-            col.updateOne(
-                    Filters.eq("_id", _id),
-                    Updates.set("estado", nuevoEstado)
-            );
-        } catch (MongoException e) {
-            throw new MongoException("error al actualizar el estado" + e);
-        }
+    public Pedido obtenerPedidoPorId(ObjectId id) {
+        return col.find(eq("id", id)).first();
+    }
+
+    @Override
+    public void insertar(Pedido pedido) {
+        col.insertOne(pedido);
+    }
+
+    @Override
+    public void actualizarEstado(ObjectId id, String nuevoEstado) {
+        col.updateOne(eq("_id", id), set("estado", nuevoEstado));
+    }
+
+    @Override
+    public void eliminar(ObjectId id) {
+        col.deleteOne(eq("_id", id));
     }
 
 }
