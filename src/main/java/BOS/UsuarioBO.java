@@ -20,7 +20,23 @@ public class UsuarioBO implements IUsuarioBO{
     public UsuarioBO() {
         this.usuarioDAO = new UsuarioDAO();
     }
-
+    public void crearAdmin(){
+        try {
+            Usuario admin = usuarioDAO.autentificar("admin@gmail.com", "mitens", "admin");
+            if(admin == null){
+                Usuario nuevoAdmin = new Usuario();
+                nuevoAdmin.setNombreCompleto("admnistrador principal");
+                nuevoAdmin.setCorreo("admin@gmail.com");
+                nuevoAdmin.setContrasenia("mitens");
+                nuevoAdmin.setRol("admin");
+                
+                usuarioDAO.registrarUsuario(nuevoAdmin, "admin");
+                System.out.println("admin creado correctamente");
+            }
+        } catch (Exception e) {
+            System.out.println("error al crear al admin"+  e.getMessage());
+        }
+    }
     @Override
     public Usuario iniciarSesion(String correo, String password) throws Exception {
         if (correo == null || correo.trim().isEmpty()) {
