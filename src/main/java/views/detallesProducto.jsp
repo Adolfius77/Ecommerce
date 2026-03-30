@@ -1,3 +1,10 @@
+<%-- 
+    Document   : detallesProducto
+    Created on : 29/03/2026, 5:33:44 p. m.
+    Author     : garfi
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 

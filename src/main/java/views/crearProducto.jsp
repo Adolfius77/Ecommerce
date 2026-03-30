@@ -1,9 +1,16 @@
+<%-- 
+    Document   : crearProducto
+    Created on : 29/03/2026, 5:26:41 p. m.
+    Author     : garfi
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedidos Admin - Ecommerce</title>
+    <title>Crear Producto - Ecommerce</title>
     <link rel="stylesheet" href="../stylesAdmin.css">
 </head>
 <body>
@@ -49,7 +56,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pagPedidosAdmin.html" class="menu-item active">
+                        <a href="pagPedidosAdmin.html" class="menu-item">
                             <img src="../imgs/pedidos.png" alt="Pedidos" class="menu-icon">
                             <span>Gestión de pedidos</span>
                         </a>
@@ -61,7 +68,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="crearProducto.html" class="menu-item">
+                        <a href="crearProducto.html" class="menu-item active">
                             <img src="../imgs/perfil.png" alt="Admin" class="menu-icon">
                             <span>Administrador</span>
                         </a>
@@ -71,54 +78,50 @@
         </aside>
 
         <main class="contenido">
-            <div class="pedidos-wrapper">
-                <div class="page-header">
-                    <h1>Pedidos (Admin)</h1>
-                    <div class="search-container">
-                        <input type="text" class="search-input" placeholder="Buscar pedidos...">
-                    </div>
+            <div class="producto-wrapper">
+                <div class="producto-header">
+                    <h1>Crear Nuevo Producto</h1>
+                    <p class="subtitulo">Añade los detalles del nuevo producto para el catálogo.</p>
                 </div>
 
-                <div class="tabla-pedidos-container">
-                    <table class="tabla-pedidos">
-                        <thead>
-                            <tr>
-                                <th>Número de pedido</th>
-                                <th>Correo del cliente</th>
-                                <th>Estado</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1001</td>
-                                <td>cliente1@email.com</td>
-                                <td><span class="estado-pedido estado-pendiente">Pendiente</span></td>
-                                <td><a href="#" class="btn-actualizar">Actualizar</a></td>
-                            </tr>
-                            <tr>
-                                <td>1002</td>
-                                <td>cliente2@email.com</td>
-                                <td><span class="estado-pedido estado-enviado">Enviado</span></td>
-                                <td><a href="#" class="btn-actualizar">Actualizar</a></td>
-                            </tr>
-                            <tr>
-                                <td>1003</td>
-                                <td>cliente3@email.com</td>
-                                <td><span class="estado-pedido estado-entregado">Entregado</span></td>
-                                <td><a href="#" class="btn-actualizar">Actualizar</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <form class="producto-form">
+                    <div class="form-content">
+                        <div class="form-fields">
+                            <div class="campo-producto">
+                                <label for="nombre">Nombre del producto</label>
+                                <input type="text" id="nombre" placeholder="Ej. Camiseta Algodón Premium">
+                            </div>
 
-                <div class="pagination-container">
-                    <span class="pagination-info">Mostrando 1 a 3 de 15 pedidos</span>
-                    <div class="pagination-buttons">
-                        <button class="btn-pagination" disabled>Anterior</button>
-                        <button class="btn-pagination">Siguiente</button>
+                            <div class="campo-producto">
+                                <label for="descripcion">Descripción</label>
+                                <textarea id="descripcion" rows="4" placeholder="Describe las características del producto..."></textarea>
+                            </div>
+
+                            <div class="campos-fila">
+                                <div class="campo-producto">
+                                    <label for="precio">Precio</label>
+                                    <input type="text" id="precio" value="$ 0.00">
+                                </div>
+                                <div class="campo-producto">
+                                    <label for="cantidad">Cantidad en stock</label>
+                                    <input type="number" id="cantidad" value="0">
+                                </div>
+                            </div>
+
+                            <div class="botones-producto">
+                                <a href="gestionCatalogo.html" class="btn-cancelar">Cancelar</a>
+                                <button type="submit" class="btn-añadir">Añadir producto</button>
+                            </div>
+                        </div>
+
+                        <div class="imagen-upload">
+                            <div class="imagen-placeholder">
+                                <div class="imagen-icono">🖼️</div>
+                                <span>Agregar Imagen</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </main>
     </div>

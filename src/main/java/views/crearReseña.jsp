@@ -1,3 +1,10 @@
+<%-- 
+    Document   : crearReseña
+    Created on : 29/03/2026, 5:32:58 p. m.
+    Author     : garfi
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto ECommerce</title>
+    <title>Crear Reseña</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 
@@ -17,8 +24,7 @@
         </div>
         <div class="header-right">
             <a href="perfilUsuario.html" class="icon" title="Perfil"><img src="../imgs/perfil.png" alt="Perfil"></a>
-            <a href="#cerrar-sesion" class="icon" title="Cerrar sesión"><img src="../imgs/salir.png"
-                    alt="Cerrar sesión"></a>
+            <a href="#cerrar-sesion" class="icon" title="Cerrar sesión"><img src="../imgs/salir.png" alt="Cerrar sesión"></a>
         </div>
     </header>
 
@@ -54,51 +60,45 @@
             </nav>
         </aside>
 
-        <main class="contenido fondo-login">
-            <div class="contenedor-login">
-                <div class="tarjeta-login">
-                    
-                    <div class="icono-login">
-                        <span>🔒</span> 
-                    </div>
-                    
-                    <div class="cabecera-login">
-                        <h2>Bienvenido de nuevo</h2>
-                        <p>Por favor, ingrese sus credenciales para acceder a su cuenta.</p>
-                    </div>
-                    
-                    <form class="formulario-login">
-                        
-                        <div class="grupo-formulario">
-                            <label for="email">Correo electrónico</label>
-                            <div class="input-icono">
-                                <span class="icono">✉️</span>
-                                <input type="email" id="email" placeholder="Ingrese su correo electrónico">
-                            </div>
+        <main class="contenido">
+            <div class="resena-container">
+                <h1>Crear Reseña</h1>
+                <p class="subtitulo">Comparte tu experiencia con este producto para ayudar a otros.</p>
+
+                <section class="producto-resena">
+                    <h2>Producto a Reseñar</h2>
+                    <div class="producto-info">
+                        <img src="../imgs/audifonos.png" alt="Producto" class="producto-imagen">
+                        <div class="producto-detalles">
+                            <h3>Auriculares inalámbricos con Cancelación de Ruido</h3>
+                            <p class="categoria">Electrónica > Audio</p>
                         </div>
-
-                        <div class="grupo-formulario">
-                            <label for="password">Contraseña</label>
-                            <div class="input-icono">
-                                <span class="icono">🔑</span>
-                                <input type="password" id="password" placeholder="Ingrese su contraseña">
-                            </div>
-                        </div>
-
-                        <div class="enlace-olvido">
-                            <a href="#">¿Olvidó su contraseña?</a>
-                        </div>
-
-                        <button type="submit" class="btn-iniciar">Iniciar sesión</button>
-                    </form>
-
-                    <div class="pie-login">
-                        <p>¿No tiene una cuenta? <a href="registro.html">Regístrese aquí</a></p>
-                        <button class="btn-regresar" onclick="window.location.href='index.html'">
-                            &larr; Regresar a inicio
-                        </button>
                     </div>
+                </section>
 
+                <section class="calificacion-general">
+                    <h2>Calificación General</h2>
+                    <div class="puntuacion-container">
+                        <label for="puntuacion">Puntuación Numérica (1-5)</label>
+                        <div class="escala-puntuacion">
+                            <span class="label-escala">Deficiente</span>
+                            <input type="range" id="puntuacion" name="puntuacion" min="1" max="5" value="4"
+                                class="slider">
+                            <span class="label-escala">Excelente</span>
+                            <span class="valor-puntuacion" id="valor-puntuacion">4</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="experiencia">
+                    <h2>Tu Experiencia</h2>
+                    <textarea id="experiencia" placeholder="¿Qué te gustó o disgustó? ¿Cómo utilizaste el producto?"
+                        rows="8"></textarea>
+                </section>
+
+                <div class="botones-accion">
+                    <button class="boton-cancelar">Cancelar</button>
+                    <button class="boton-enviar">Enviar reseña</button>
                 </div>
             </div>
         </main>

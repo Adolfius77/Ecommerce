@@ -1,3 +1,10 @@
+<%-- 
+    Document   : catalogo
+    Created on : 29/03/2026, 5:24:44 p. m.
+    Author     : garfi
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 
