@@ -25,7 +25,7 @@ public class UsuarioDAO implements IUsuarioDAO{
     
     private final MongoCollection<Usuario> col;
 
-    public UsuarioDAO(MongoCollection<Usuario> col) {
+    public UsuarioDAO() {
         this.col = MongoClientProvider.INSTANCE.getcCollection("usuario", Usuario.class);
     }
     
@@ -36,6 +36,7 @@ public class UsuarioDAO implements IUsuarioDAO{
             if(entidad.getId() == null){
                 entidad.setId(new ObjectId());
             }
+            entidad.setRol(rol);
             col.insertOne(entidad);
             return entidad.getId();
         } catch (MongoException e) {
